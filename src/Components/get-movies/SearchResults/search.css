@@ -1,0 +1,9 @@
+.image-container{
+    overflow: hidden;
+    object-fit: cover;
+    height: auto;
+    width: 100%;
+    display: grid;
+    gap: 1%;
+    grid-template-columns: repeat(3,1fr);
+}

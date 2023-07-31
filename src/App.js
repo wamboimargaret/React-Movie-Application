@@ -10,8 +10,13 @@ function App() {
     <BrowserRouter>
      <div className='main'>
           <Navbar/>
-          <GetMovies/>
+          {/* <GetMovies/> */}
+          <Routes>
+           <Route path= "/" element ={<GetMovies/>}/>
+           <Route path='/search/:query' element ={<SearchResultsPage/>} />
+        
 
+          </Routes>
           
   
     </div>
