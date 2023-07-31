@@ -1,18 +1,24 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { searchMovies } from "../../../utils/utilities";
 import "./style.css"
 
+const Navbar = () => {
+    const [searchValue, setSearchValue] = useState("");
+    const [searchResults, setSearchResults] = useState([]);
+    const navigate = useNavigate();
+    const handleInput = (event) => {
+      setSearchValue(event.target.value);
+    };
+    const handleSearch = async () => {
+      const results = await searchMovies(searchValue);
+      setSearchResults(results.results);
+      navigate(`/search/${encodeURIComponent(searchValue)}`);
+    };
+    const handleHomeClick = () => {
+      navigate('/');
+    };
 
-const Search = ({onSearch}) => {
-  const [searchValue, setSearchValue] = useState("");
-  const handleInput = (event) => {
-    setSearchValue(event.target.value);
-    console.log("I am typing", event.target.value);
-  };
-
-  const handleSearchClick = () => {
-    console.log("I am searching", searchValue);
-    onSearch(searchValue)
-  };
 
   return (
     <div className="nav">
@@ -23,12 +29,13 @@ const Search = ({onSearch}) => {
         value={searchValue}
         onChange={handleInput}
       />
-      <button onClick={handleSearchClick} className="btnsearch">Search</button>
-      <h3 className="Home">Home</h3>
+      <button onClick={handleSearch} className="btnsearch">Search</button>
+      <a href="#" onClick={handleHomeClick}> <h3 className="Home">Home</h3></a>
+    
       <h3 className="mylist">My List</h3>
       <button>Sign In</button>
     </div>
   );
 };
 
-export default Search;
+export default Navbar;

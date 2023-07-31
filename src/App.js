@@ -1,17 +1,22 @@
 // import logo from './logo.svg';
 import './App.css';
 import GetMovies from './Components/get-movies';
-import Search from './Components/get-movies/Navbar';
-// import { BrowserRouter,Routes } from 'react-router-dom';
+import Navbar from './Components/get-movies/Navbar';
+import SearchResultsPage from './Components/get-movies/SearchResults/search';
+import { BrowserRouter,Route,Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className='main'>
-          <Search/>
+    <BrowserRouter>
+     <div className='main'>
+          <Navbar/>
           <GetMovies/>
+
           
   
     </div>
+    </BrowserRouter>
+   
   );
 }
 export default App;

@@ -41,12 +41,14 @@ button:hover {
   .Home{
     margin-right: 5px;
     padding-right: 8px;
+    color: white;
   }
   .btnsearch{
     margin-right: 10%;
   }
   .mylist{
     margin-right: 50px;
+    color: white;
   }
   .nav{
     /* margin-left: 10%; */
